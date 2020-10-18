@@ -35,6 +35,8 @@ In `ApplicationDbContext`, change the class declaration to:
 public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
 ```
 
+This took me days to figure out.
+
 Override the creation of the tablenames, also notice the overriding of the default primary key types (to `int`):
 
 ```c#
