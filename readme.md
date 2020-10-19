@@ -35,9 +35,9 @@ In `ApplicationDbContext`, change the class declaration to:
 public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
 ```
 
-Changing the type parameters of `IdentityDbContext` took me days to figure out. You'd think you'd be fine with passing in just your customized `IdentityUser` type, e.g. `ApplicationUser`. Except no. You also need the role and type. Go figure. I believe you can from this point extend the declaration of `IdentityDbContext` as you further modify basic Identity classes, but I haven't tried it and I want the example to be simple.
+Changing the type parameters of `IdentityDbContext` took me days to figure out. You'd think you'd be fine with passing in just your customized `IdentityUser` type, e.g. `ApplicationUser`. But no. You also need the role and type. Go figure. I believe that from this point on, you can extend the declaration of `IdentityDbContext` with other modified `Identity` classes, but that is beyond the scope of this example.
 
-Once you get the context to wpork at all, overriding the creation of the tablenames is simple, also notice the overriding of the default primary key types (to `int`):
+Once you get the context to work at all, overriding the creation of the tablenames is simple, also notice the overriding of the default primary key types (to `int`):
 
 ```c#
 // override default table names
